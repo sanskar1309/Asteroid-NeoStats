@@ -1,21 +1,20 @@
 <template>
-  <div
-    class="bg-space bg-cover bg-center min-h-screen flex flex-col items-center"
-  >
-    <h1 class="text-white text-4xl font-bold mb-20 mt-8">Asteroid Neo Stats</h1>
-    <div
-      class="flex flex-col justify-center items-center lg:flex-row gap-8 w-full px-4 mb-10"
-    >
-      <About />
-      <div class="flex flex-col gap-4">
-        <DatePicker @dates-selected="fetchData" />
+  <div class="bg-space bg-cover bg-center min-h-screen flex flex-col items-center">
+    <Loader v-if="loading" /> 
+    <div v-else>
+      <h1 class="text-white text-4xl font-bold mb-20 mt-8 text-center">Asteroid Neo Stats</h1>
+      <div class="flex flex-col justify-center items-center lg:flex-row gap-8 w-full px-4 mb-10">
+        <About />
+        <div class="flex flex-col gap-4">
+          <DatePicker @dates-selected="fetchData" />
+        </div>
       </div>
-    </div>
-    <div class="flex justify-center items-center w-full">
-      <StatsDisplay :stats="stats" />
-    </div>
-    <div class="flex justify-center items-center py-8 px-4 w-full mb-20">
-      <LineChart :data="chartData" />
+      <div class="flex justify-center items-center w-full">
+        <StatsDisplay :stats="stats" />
+      </div>
+      <div class="flex justify-center items-center py-8 px-4 w-full mb-20">
+        <LineChart :data="chartData" />
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +24,7 @@ import DatePicker from "./components/DatePicker.vue";
 import StatsDisplay from "./components/StatsDisplay.vue";
 import LineChart from "./components/LineChart.vue";
 import About from "./components/About.vue";
+import Loader from "./components/Loader.vue"; 
 import { ref } from "vue";
 import { getNeoData } from "./services/neoService";
 
@@ -34,22 +34,23 @@ export default {
     StatsDisplay,
     LineChart,
     About,
+    Loader,
   },
   setup() {
-    // Reactive state for asteroid statistics
     const stats = ref({
       fastest: { id: "", speed: 0 },
       closest: { id: "", distance: Infinity },
       averageSize: 0,
     });
-    // Reactive state for chart data
     const chartData = ref({ labels: [], datasets: [] });
+    const loading = ref(false); // State to manage loading
 
     /**
      * Fetches data from NASA's NeoWs API for asteroids passing near Earth
      * within the selected date range, and updates the stats and chart.
      */
     const fetchData = async (startDate, endDate) => {
+      loading.value = true; // Show loader
       try {
         const response = await getNeoData(startDate, endDate);
         const data = response.data.near_earth_objects;
@@ -59,6 +60,8 @@ export default {
         console.log("Chart Data:", chartData.value);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        loading.value = false; // Hide loader
       }
     };
 
@@ -66,7 +69,6 @@ export default {
      * Calculate the fastest, closest, and average size of asteroids.
      * @param {Object} data - Asteroids data grouped by date.
      */
-
     const calculateStats = (data) => {
       let fastest = { id: "", speed: 0 };
       let closest = { id: "", distance: Infinity };
@@ -84,15 +86,15 @@ export default {
             (asteroid.estimated_diameter.kilometers.estimated_diameter_max +
               asteroid.estimated_diameter.kilometers.estimated_diameter_min) /
             2;
-          // Track the fastest asteroid
+
           if (speed > fastest.speed) {
             fastest = { id: asteroid.id, speed };
           }
-          // Track the closest asteroid
+
           if (distance < closest.distance) {
             closest = { id: asteroid.id, distance };
           }
-          // Sum up the size for average calculation
+
           totalSize += size;
           count++;
         });
@@ -136,10 +138,12 @@ export default {
       stats,
       chartData,
       fetchData,
+      loading,
     };
   },
 };
 </script>
+
 <style>
 .bg-space {
   background-image: url("/src/assets/bg-imgs/space5.jpg");
