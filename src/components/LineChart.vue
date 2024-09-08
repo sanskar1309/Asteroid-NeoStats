@@ -42,45 +42,27 @@ export default defineComponent({
     },
   },
   setup(props) {
-
+   
     const options = computed(() => ({
       responsive: true, 
       maintainAspectRatio: false, 
       plugins: {
         legend: {
           position: "top", 
-          labels: {
-            font: {
-              size: window.innerWidth < 640 ? 10 : 14, 
-            },
-          },
         },
         title: {
           display: true,
           text: "Asteroids Passing Near Earth", 
-          font: {
-            size: window.innerWidth < 640 ? 16 : 20, 
-          },
         },
       },
       scales: {
         x: {
           type: "category",
           labels: props.data.labels,
-          ticks: {
-            font: {
-              size: window.innerWidth < 640 ? 10 : 12, 
-            },
-          },
         },
         y: {
           type: "linear",
           position: "left",
-          ticks: {
-            font: {
-              size: window.innerWidth < 640 ? 10 : 12, 
-            },
-          },
         },
       },
     }));
@@ -95,20 +77,12 @@ export default defineComponent({
 <style scoped>
 .chart-container {
   position: relative;
-  width: 100%; 
-  max-width: 1000px; 
+  width: 100%;
+  max-width: 800px;
   height: 400px;
-  margin: 20px auto;
+  margin: 20px;
   background-color: #ffffff;
 }
-
-
-@media (max-width: 640px) {
-  .chart-container {
-    height: 300px; 
-  }
-}
-
 .title {
   font-size: 30px;
   font-weight: 700;
