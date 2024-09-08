@@ -1,7 +1,7 @@
 <template>
   <div class="container flex flex-col items-center">
     <div
-      class="flex flex-col items-center gap-3 py-8 border rounded-lg shadow-md bg-white w-96 p-6"
+      class="flex flex-col items-center gap-3 py-8 border rounded-lg shadow-md bg-white w-96 p-6 "
     >
       <div class="w-full">
         <label for="start-date" class="block text-gray-700 font-medium mb-1"
@@ -104,3 +104,4 @@ export default {
   },
 };
 </script>
+

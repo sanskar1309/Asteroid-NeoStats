@@ -87,4 +87,26 @@ export default defineComponent({
   font-size: 30px;
   font-weight: 700;
 }
+@media (max-width: 640px) {
+  .chart-container{
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 20px;
+    background-color: #ffffff;
+  }
+}
+@media (max-width: 400px) {
+  .chart-container{
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 360px;
+    margin: 20px;
+    background-color: #ffffff;
+  }
+}
+
+
 </style>
