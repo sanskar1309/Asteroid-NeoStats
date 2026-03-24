@@ -7,7 +7,7 @@
       <!-- Total -->
       <div class="glass p-5 text-center">
         <p class="stat-num text-blue-400">{{ stats.totalCount || 0 }}</p>
-        <p class="text-slate-500 text-sm mt-1.5 font-medium">Total Asteroids</p>
+        <p class="text-slate-300 text-sm mt-1.5 font-medium">Total Asteroids</p>
       </div>
 
       <!-- Hazardous -->
@@ -15,10 +15,10 @@
         :style="stats.hazardousCount > 0
           ? 'border-color:rgba(239,68,68,0.25);box-shadow:0 0 24px rgba(239,68,68,0.08);'
           : ''">
-        <p class="stat-num" :class="stats.hazardousCount > 0 ? 'text-red-400' : 'text-slate-600'">
+        <p class="stat-num" :class="stats.hazardousCount > 0 ? 'text-red-400' : 'text-slate-400'">
           {{ stats.hazardousCount || 0 }}
         </p>
-        <p class="text-slate-500 text-sm mt-1.5 font-medium">
+        <p class="text-slate-300 text-sm mt-1.5 font-medium">
           <span v-if="stats.hazardousCount > 0">⚠️ </span>Potentially Hazardous
         </p>
       </div>
@@ -26,7 +26,7 @@
       <!-- Avg size -->
       <div class="glass p-5 text-center">
         <p class="stat-num text-cyan-400">{{ stats.averageSize || '—' }}</p>
-        <p class="text-slate-500 text-sm mt-1.5 font-medium">Avg. Size (km)</p>
+        <p class="text-slate-300 text-sm mt-1.5 font-medium">Avg. Size (km)</p>
       </div>
 
     </div>
@@ -42,7 +42,7 @@
               style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.18);">
               🚀
             </div>
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Fastest</span>
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">Fastest</span>
           </div>
           <span v-if="stats.fastest.isHazardous" class="badge-hazard">HAZARDOUS</span>
         </div>
@@ -54,9 +54,9 @@
             style="font-family:'Space Grotesk',sans-serif;">
             {{ Number(stats.fastest.speed).toLocaleString() }}
           </p>
-          <p class="text-xs text-slate-600 mt-1.5">km/h relative velocity</p>
+          <p class="text-xs text-slate-400 mt-1.5">km/h relative velocity</p>
         </template>
-        <p v-else class="text-slate-700 text-sm italic">No data yet</p>
+        <p v-else class="text-slate-500 text-sm italic">No data yet</p>
       </div>
 
       <!-- Closest -->
@@ -67,7 +67,7 @@
               style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.18);">
               🎯
             </div>
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Closest</span>
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">Closest</span>
           </div>
           <span v-if="stats.closest.isHazardous" class="badge-hazard">HAZARDOUS</span>
         </div>
@@ -79,12 +79,12 @@
             style="font-family:'Space Grotesk',sans-serif;">
             {{ Number(stats.closest.distance).toLocaleString(undefined,{maximumFractionDigits:0}) }}
           </p>
-          <p class="text-xs text-slate-600 mt-1.5">km miss distance</p>
+          <p class="text-xs text-slate-400 mt-1.5">km miss distance</p>
           <p class="text-xs mt-1" style="color:rgba(100,116,139,0.7);">
             {{ stats.closest.distanceLunar }} lunar distances
           </p>
         </template>
-        <p v-else class="text-slate-700 text-sm italic">No data yet</p>
+        <p v-else class="text-slate-500 text-sm italic">No data yet</p>
       </div>
 
       <!-- Largest -->
@@ -95,7 +95,7 @@
               style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.18);">
               🪨
             </div>
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Largest</span>
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">Largest</span>
           </div>
           <span v-if="stats.largest.isHazardous" class="badge-hazard">HAZARDOUS</span>
         </div>
@@ -107,9 +107,9 @@
             style="font-family:'Space Grotesk',sans-serif;">
             ~{{ stats.largest.size }}
           </p>
-          <p class="text-xs text-slate-600 mt-1.5">meters estimated diameter</p>
+          <p class="text-xs text-slate-400 mt-1.5">meters estimated diameter</p>
         </template>
-        <p v-else class="text-slate-700 text-sm italic">No data yet</p>
+        <p v-else class="text-slate-500 text-sm italic">No data yet</p>
       </div>
 
     </div>

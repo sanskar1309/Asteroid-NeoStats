@@ -26,7 +26,7 @@
     <Loader v-if="loading" />
 
     <!-- ── Main shell ── -->
-    <div v-else class="relative" style="z-index:1;">
+    <div class="relative" style="z-index:1;">
 
       <!-- ===== HEADER ===== -->
       <header class="sticky top-0 border-b"
@@ -47,24 +47,23 @@
       </header>
 
       <!-- ===== HERO ===== -->
-      <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12">
+      <section class="w-full px-4 sm:px-8 pt-20 pb-12">
         <div class="text-center mb-12">
-          <div class="inline-flex items-center gap-2 badge-nasa mb-5">
+          <div class="inline-flex items-center gap-2 badge-nasa mb-6">
             <span>🛰</span> Near Earth Object Web Service
           </div>
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight"
+          <h2 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-none tracking-tight"
             style="font-family:'Space Grotesk',sans-serif;
-                   text-shadow:0 0 40px rgba(59,130,246,0.35);">
-            Track Near-Earth<br class="hidden sm:block" /> Asteroids
+                   text-shadow:0 0 60px rgba(59,130,246,0.4);">
+            Track Near-Earth <span class="text-blue-400">Asteroids</span>
           </h2>
-          <p class="text-slate-400 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
+          <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             Real-time asteroid data from NASA's NeoWs API. Select a date range to
             explore proximity, velocity, size, and hazard data.
           </p>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-5 items-start justify-center">
-          <About />
+        <div class="max-w-6xl mx-auto">
           <DatePicker @dates-selected="fetchData" />
         </div>
       </section>
@@ -102,16 +101,20 @@
       </template>
 
       <!-- ===== FOOTER ===== -->
-      <footer class="border-t py-8 text-center"
-        style="border-color:rgba(255,255,255,0.05);">
-        <p class="text-slate-600 text-sm">
-          Data from
-          <a href="https://api.nasa.gov/" target="_blank" rel="noopener"
-            class="text-slate-500 hover:text-blue-400 transition-colors duration-200">
-            NASA's Near Earth Object Web Service
-          </a>
-          &nbsp;·&nbsp; Asteroid NeoStats
-        </p>
+      <footer class="border-t mt-4" style="border-color:rgba(255,255,255,0.06);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <About />
+        </div>
+        <div class="border-t py-5 text-center" style="border-color:rgba(255,255,255,0.05);">
+          <p class="text-slate-500 text-xs">
+            Data from
+            <a href="https://api.nasa.gov/" target="_blank" rel="noopener"
+              class="text-slate-400 hover:text-blue-400 transition-colors duration-200">
+              NASA's Near Earth Object Web Service
+            </a>
+            &nbsp;·&nbsp; Asteroid NeoStats
+          </p>
+        </div>
       </footer>
 
     </div>
