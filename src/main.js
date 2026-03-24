@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import { Chart, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
-import './style.css' 
+import { Chart, Title, Tooltip, Legend, LineElement, PointElement, LinearScale, CategoryScale, Filler } from 'chart.js';
+import './style.css'
 
 Chart.register(
   Title,
@@ -10,7 +10,8 @@ Chart.register(
   LineElement,
   PointElement,
   LinearScale,
-  CategoryScale
+  CategoryScale,
+  Filler
 );
 
 createApp(App).mount('#app');

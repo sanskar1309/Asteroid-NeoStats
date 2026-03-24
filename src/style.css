@@ -1,3 +1,276 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #030712;
+  color: #f1f5f9;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: #0a0f1e; }
+::-webkit-scrollbar-thumb    { background: #1e3a5f; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+/* ============================================================
+   STAR LAYERS  (placed as fixed 1×1 / 2×2 / 3×3 px divs)
+   ============================================================ */
+.stars-sm,
+.stars-md,
+.stars-lg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ~80 small stars */
+.stars-sm {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  animation: twinkle 9s ease-in-out infinite;
+  box-shadow:
+    45px 234px rgba(255,255,255,.65),  123px  67px rgba(255,255,255,.55),
+   234px 456px rgba(255,255,255,.70),  356px 123px rgba(255,255,255,.50),
+   478px 345px rgba(255,255,255,.65),  589px  78px rgba(255,255,255,.60),
+   678px 234px rgba(255,255,255,.75),  789px 456px rgba(255,255,255,.50),
+   845px 123px rgba(255,255,255,.65),  912px 345px rgba(255,255,255,.55),
+  1023px  67px rgba(255,255,255,.75), 1134px 234px rgba(255,255,255,.50),
+  1245px 456px rgba(255,255,255,.65), 1356px  89px rgba(255,255,255,.60),
+  1467px 312px rgba(255,255,255,.75), 1578px  45px rgba(255,255,255,.50),
+  1689px 234px rgba(255,255,255,.65), 1756px 456px rgba(255,255,255,.55),
+  1823px 123px rgba(255,255,255,.75), 1900px 345px rgba(255,255,255,.50),
+    56px 567px rgba(255,255,255,.65),  167px 678px rgba(255,255,255,.55),
+   278px 789px rgba(255,255,255,.75),  389px 567px rgba(255,255,255,.50),
+   456px 678px rgba(255,255,255,.65),  523px 789px rgba(255,255,255,.55),
+   634px 567px rgba(255,255,255,.75),  745px 678px rgba(255,255,255,.50),
+   856px 789px rgba(255,255,255,.65),  923px 567px rgba(255,255,255,.55),
+  1034px 678px rgba(255,255,255,.75), 1145px 789px rgba(255,255,255,.50),
+  1256px 567px rgba(255,255,255,.65), 1367px 678px rgba(255,255,255,.55),
+  1478px 789px rgba(255,255,255,.75), 1545px 567px rgba(255,255,255,.50),
+  1656px 678px rgba(255,255,255,.65), 1767px 789px rgba(255,255,255,.55),
+  1845px 567px rgba(255,255,255,.75), 1912px 678px rgba(255,255,255,.50),
+    89px 345px rgba(255,255,255,.65),  178px 234px rgba(255,255,255,.55),
+   267px 123px rgba(255,255,255,.75),  356px  45px rgba(255,255,255,.50),
+   423px 234px rgba(255,255,255,.65),  512px 123px rgba(255,255,255,.55),
+   678px  45px rgba(255,255,255,.75),  745px 234px rgba(255,255,255,.50),
+   834px  45px rgba(255,255,255,.65),  923px 234px rgba(255,255,255,.55),
+  1012px  45px rgba(255,255,255,.75), 1078px 234px rgba(255,255,255,.50),
+  1167px 123px rgba(255,255,255,.65), 1256px  45px rgba(255,255,255,.55),
+  1345px 234px rgba(255,255,255,.75), 1434px 123px rgba(255,255,255,.50),
+  1523px  45px rgba(255,255,255,.65), 1634px 234px rgba(255,255,255,.55),
+  1723px  45px rgba(255,255,255,.75), 1812px 234px rgba(255,255,255,.50),
+    34px 812px rgba(255,255,255,.65),  145px 734px rgba(255,255,255,.55),
+   256px 856px rgba(255,255,255,.75),  367px 723px rgba(255,255,255,.50),
+   478px 834px rgba(255,255,255,.65),  589px 756px rgba(255,255,255,.55),
+   700px 856px rgba(255,255,255,.75),  811px 723px rgba(255,255,255,.50),
+   922px 834px rgba(255,255,255,.65), 1033px 756px rgba(255,255,255,.55),
+  1144px 856px rgba(255,255,255,.75), 1255px 723px rgba(255,255,255,.50),
+  1366px 834px rgba(255,255,255,.65), 1477px 756px rgba(255,255,255,.55),
+  1588px 856px rgba(255,255,255,.75), 1699px 723px rgba(255,255,255,.50),
+  1810px 834px rgba(255,255,255,.65);
+}
+
+/* ~20 medium stars */
+.stars-md {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  animation: twinkle 13s ease-in-out infinite 2s;
+  box-shadow:
+    89px 156px rgba(255,255,255,.80),  267px 334px rgba(255,255,255,.90),
+   445px 512px rgba(255,255,255,.70),  623px 178px rgba(255,255,255,.85),
+   801px 356px rgba(255,255,255,.90),  979px 534px rgba(255,255,255,.70),
+  1157px 178px rgba(255,255,255,.85), 1335px 356px rgba(255,255,255,.90),
+  1513px 534px rgba(255,255,255,.70), 1691px 178px rgba(255,255,255,.85),
+   178px 645px rgba(255,255,255,.90),  356px 823px rgba(255,255,255,.70),
+   534px 645px rgba(255,255,255,.85),  712px 823px rgba(255,255,255,.90),
+   890px 645px rgba(255,255,255,.70), 1068px 823px rgba(255,255,255,.85),
+  1246px 645px rgba(255,255,255,.90), 1424px 823px rgba(255,255,255,.70),
+  1602px 645px rgba(255,255,255,.85), 1780px 823px rgba(255,255,255,.90);
+}
+
+/* ~10 large stars */
+.stars-lg {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  animation: twinkle 17s ease-in-out infinite 5s;
+  box-shadow:
+   200px 300px rgba(255,255,255,.95),  600px 150px rgba(255,255,255,.90),
+  1000px 400px rgba(255,255,255,.95), 1400px 200px rgba(255,255,255,.90),
+  1800px 350px rgba(255,255,255,.95),  400px 700px rgba(255,255,255,.90),
+   800px 650px rgba(255,255,255,.95), 1200px 750px rgba(255,255,255,.90),
+  1600px 600px rgba(255,255,255,.95),  100px 850px rgba(255,255,255,.90);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: .9; }
+  50%       { opacity: .4; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+@layer components {
+
+  /* Glass card */
+  .glass {
+    background: rgba(255,255,255,0.035);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-300 ease-out;
+  }
+  .glass-hover:hover {
+    background: rgba(255,255,255,0.065);
+    border-color: rgba(255,255,255,0.14);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,130,246,0.08);
+  }
+
+  /* Divider line */
+  .gradient-line {
+    height: 1px;
+    background: linear-gradient(to right, rgba(59,130,246,0.5), rgba(59,130,246,0.1), transparent);
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: -0.01em;
+  }
+
+  /* Pill badges */
+  .badge-hazard {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.28);
+    color: #f87171;
+  }
+
+  .badge-sentry {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: rgba(234,179,8,0.1);
+    border: 1px solid rgba(234,179,8,0.22);
+    color: #fbbf24;
+  }
+
+  .badge-nasa {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    color: #60a5fa;
+    letter-spacing: 0.02em;
+  }
+
+  /* Stat number */
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* Input — dark */
+  .input-dark {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    color-scheme: dark;
+  }
+  .input-dark:focus {
+    border-color: rgba(59,130,246,0.5);
+    background: rgba(59,130,246,0.06);
+  }
+
+  /* CTA button */
+  .btn-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.5rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 20px rgba(59,130,246,0.25), 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .btn-glow:hover {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    box-shadow: 0 0 32px rgba(59,130,246,0.5), 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
+  }
+  .btn-glow:active {
+    transform: translateY(0);
+    box-shadow: 0 0 16px rgba(59,130,246,0.3);
+  }
+}
