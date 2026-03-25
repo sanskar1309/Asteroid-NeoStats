@@ -107,12 +107,14 @@
         </div>
         <div class="border-t py-5 text-center" style="border-color:rgba(255,255,255,0.05);">
           <p class="text-slate-500 text-xs">
-            Data from
+            &copy; {{ new Date().getFullYear() }} Asteroid NeoStats
+            &nbsp;·&nbsp;
+            Asteroid data provided by
             <a href="https://api.nasa.gov/" target="_blank" rel="noopener"
               class="text-slate-400 hover:text-blue-400 transition-colors duration-200">
-              NASA's Near Earth Object Web Service
+              NASA's Near Earth Object Web Service (NeoWs)
             </a>
-            &nbsp;·&nbsp; Asteroid NeoStats
+            &nbsp;·&nbsp; Not affiliated with NASA or JPL
           </p>
         </div>
       </footer>

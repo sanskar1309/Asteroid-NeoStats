@@ -21,7 +21,7 @@
 
       <!-- Presets -->
       <div class="flex-shrink-0">
-        <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Quick Select</p>
+        <p class="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-2">Quick Select</p>
         <div class="flex flex-wrap gap-2">
           <button
             v-for="preset in presets" :key="preset.label"
@@ -240,14 +240,14 @@ export default {
   border-radius: 9999px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  color: #94a3b8;
+  color: #cbd5e1;
   cursor: pointer;
   transition: all 0.18s ease;
   white-space: nowrap;
 }
 .preset-btn:hover {
   background: rgba(255,255,255,0.08);
-  color: #94a3b8;
+  color: #e2e8f0;
   border-color: rgba(255,255,255,0.14);
 }
 .preset-btn--active {
