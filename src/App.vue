@@ -42,7 +42,18 @@
               Asteroid <span class="text-blue-400">NeoStats</span>
             </span>
           </div>
-          <span class="badge-nasa hidden sm:inline-flex">Powered by NASA NeoWs</span>
+          <div class="flex items-center gap-3">
+            <a href="#about"
+              class="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-200 transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+              How to use
+            </a>
+            <span class="badge-nasa hidden sm:inline-flex">Powered by NASA NeoWs</span>
+          </div>
         </div>
       </header>
 
@@ -101,7 +112,7 @@
       </template>
 
       <!-- ===== FOOTER ===== -->
-      <footer class="border-t mt-4" style="border-color:rgba(255,255,255,0.06);">
+      <footer id="about" class="border-t mt-4" style="border-color:rgba(255,255,255,0.06);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
           <About />
         </div>
