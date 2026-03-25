@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#030712"/>
+  <!-- Glow -->
+  <circle cx="32" cy="32" r="22" fill="rgba(59,130,246,0.08)"/>
+  <!-- Asteroid body -->
+  <ellipse cx="34" cy="30" rx="14" ry="11" transform="rotate(-30 34 30)" fill="#94a3b8"/>
+  <ellipse cx="34" cy="30" rx="14" ry="11" transform="rotate(-30 34 30)" fill="url(#rock)"/>
+  <!-- Craters -->
+  <circle cx="31" cy="26" r="2.5" fill="#64748b"/>
+  <circle cx="38" cy="32" r="1.8" fill="#64748b"/>
+  <circle cx="28" cy="33" r="1.4" fill="#64748b"/>
+  <!-- Streak/trail -->
+  <line x1="14" y1="48" x2="26" y2="38" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="10" y1="52" x2="22" y2="42" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+  <defs>
+    <radialGradient id="rock" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </radialGradient>
+  </defs>
+</svg>
